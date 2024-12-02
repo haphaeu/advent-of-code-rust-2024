@@ -2,12 +2,12 @@ name: Update readme ⭐️ progress
 
 on:
     # Run for every commit in `main`
-    # push:
-    #     branches:
-    #         - main
+    push:
+        branches:
+            - main
     # Run every 9 hours, at minute 6
-    # schedule:
-    #    - cron: "6 */9 * * *" # Every 9 hours
+    schedule:
+       - cron: "6 */9 * * *" # Every 9 hours
     workflow_dispatch:
 
 jobs:
