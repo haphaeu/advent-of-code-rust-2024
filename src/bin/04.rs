@@ -89,7 +89,8 @@ pub fn part_one(input: &str) -> Option<u32> {
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-    let lines: Vec<&str> = input.lines().collect();
+    let lines: Vec<Vec<char>> =
+        input.lines().map(|l| l.chars().collect()).collect();
 
     Some(
         (0..lines.len() - 2)
@@ -103,11 +104,11 @@ pub fn part_two(input: &str) -> Option<u32> {
                             ('S', 'M', 'A', 'S', 'M'),
                             ('S', 'S', 'A', 'M', 'M'),
                         ] {
-                            if lines[i].chars().nth(j).unwrap() == k
-                                && lines[i].chars().nth(j + 2).unwrap() == l
-                                && lines[i + 1].chars().nth(j + 1).unwrap() == m
-                                && lines[i + 2].chars().nth(j).unwrap() == n
-                                && lines[i + 2].chars().nth(j + 2).unwrap() == o
+                            if lines[i][j] == k
+                                && lines[i][j + 2] == l
+                                && lines[i + 1][j + 1] == m
+                                && lines[i + 2][j] == n
+                                && lines[i + 2][j + 2] == o
                             {
                                 c += 1;
                             }
