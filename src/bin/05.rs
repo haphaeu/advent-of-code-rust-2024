@@ -48,21 +48,21 @@ fn correct(update: &mut Vec<u32>, rules: &Vec<Vec<u32>>) -> bool {
 
 pub fn part_two(input: &str) -> Option<u32> {
     let (rules, updates) = parse_input(input);
-
-    let mut invalid = updates
-        .into_iter()
-        .filter(|update| {
-            update.iter().zip(update.iter().skip(1)).any(|(&a, &b)| {
-                rules.iter().any(|rule| rule[0] == b && rule[1] == a)
+    Some(
+        updates
+            .into_iter()
+            .filter(|update| {
+                update.iter().zip(update.iter().skip(1)).any(|(&a, &b)| {
+                    rules.iter().any(|rule| rule[0] == b && rule[1] == a)
+                })
             })
-        })
-        .collect::<Vec<_>>();
-
-    for update in invalid.iter_mut() {
-        while correct(update, &rules) {}
-    }
-
-    Some(invalid.iter().map(|update| update[update.len() / 2]).sum())
+            .map(|mut update| {
+                while correct(&mut update, &rules) {}
+                update
+            })
+            .map(|update| update[update.len() / 2])
+            .sum(),
+    )
 }
 
 #[cfg(test)]
