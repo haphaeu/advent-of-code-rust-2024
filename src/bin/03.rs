@@ -38,7 +38,7 @@ pub fn part_one(input: &str) -> Option<u32> {
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-    let reg_expressions = vec![
+    let mut reg_expressions = vec![
         // match the instructions before the first don't() instruction
         Regex::new(r"(.*?)don't\(\)").unwrap(),
         // match the instructions after the first do() and before the last don't()
@@ -49,6 +49,10 @@ pub fn part_two(input: &str) -> Option<u32> {
         //       so can just ignore this case.
         //Regex::new(r".*do\(\)(.*)").unwrap(),
     ];
+    // little cheat to fix the last case
+    if input.rfind("do()").unwrap() > input.rfind("don't()").unwrap() {
+        reg_expressions.push(Regex::new(r".*do\(\)(.*)").unwrap());
+    }
 
     Some(
         reg_expressions
