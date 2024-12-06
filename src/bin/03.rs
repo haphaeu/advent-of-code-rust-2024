@@ -4,13 +4,13 @@ use regex::Regex;
 
 fn parse_mul_sum(input: &str) -> Option<u32> {
     let re = Regex::new(r"mul\((\d+),(\d+)\)").unwrap();
-    println!("  input: {}", input);
+    //println!("  input: {}", input);
     Some(
         re.captures_iter(input)
             .map(|cap| {
                 let c1 = cap[1].parse::<u32>().unwrap();
                 let c2 = cap[2].parse::<u32>().unwrap();
-                println!("  mul({},{})", c1, c2);
+                //println!("  mul({},{})", c1, c2);
                 c1 * c2
             })
             .sum(),
@@ -59,7 +59,7 @@ pub fn part_two(input: &str) -> Option<u32> {
             .iter()
             .enumerate()
             .map(|(i, re)| {
-                println!("re: {}", re.to_string());
+                //println!("re: {}", re.to_string());
                 parse_slice(re, input, i)
             })
             .sum(),
