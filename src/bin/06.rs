@@ -51,6 +51,8 @@ fn get_path(
 ) -> Option<Vec<(i32, i32, char)>> {
     //println!("Starting at {} {}", i, j);
     let mut path = vec![(i, j, moving)];
+    let mut path_set = HashSet::new();
+    path_set.insert((i, j, moving));
     let mut turns = 0;
     loop {
         let (i_try, j_try) = move_guard(i, j, moving);
@@ -72,12 +74,13 @@ fn get_path(
         } else {
             turns = 0;
             (i, j) = (i_try, j_try);
-            if path.contains(&(i, j, moving)) {
+            if path_set.contains(&(i, j, moving)) {
                 // Deadlock
                 //println!("Deadlock, backtracking");
                 return None;
             }
             path.push((i, j, moving));
+            path_set.insert((i, j, moving));
             //println!("Moved to {} {}", i, j);
         }
     }
