@@ -121,10 +121,10 @@ pub fn part_two(input: &str) -> Option<u32> {
     });
     Some(
         blocks
-        .into_iter()
-        //.inspect(|(i, j)| println!("{} {}", i, j))
-        .collect::<HashSet<_>>()
-        .len() as u32
+            .into_iter()
+            //.inspect(|(i, j)| println!("{} {}", i, j))
+            .collect::<HashSet<_>>()
+            .len() as u32,
     )
 }
 
