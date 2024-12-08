@@ -24,14 +24,19 @@ fn concat(a: u64, b: u64) -> u64 {
     a * 10_u64.pow(b.ilog10() as u32 + 1) + b
 }
 
-fn solve(values: Vec<u64>, ops: Vec<fn(u64, u64) -> u64>) -> u64 {
+fn solve(mut values: Vec<u64>, mut ops: Vec<fn(u64, u64) -> u64>) -> u64 {
     let result = ops[0](values[0], values[1]);
     if values.len() == 2 {
         return result;
     }
-    let mut values_rest = vec![result];
-    values_rest.extend(values.iter().skip(2));
-    solve(values_rest, ops.into_iter().skip(1).collect())
+
+    // replace the 2 first values with the results of their operation
+    values[1] = result;
+    values.remove(0);
+    // remove the first operation
+    ops.remove(0);
+
+    solve(values, ops)
 }
 
 fn check_valid(values: Vec<u64>, incl_concat: bool) -> u64 {
