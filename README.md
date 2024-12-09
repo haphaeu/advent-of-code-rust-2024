@@ -4,6 +4,11 @@
 
 Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.rust-lang.org/).
 
+Well, it's getting difficult to fit learning Rust, solving AoC, during busy days at work.
+So I'm solving some days in Python notebooks, and *when I find time*, translating that
+algorithm to Rust, and *when I find the time*, optimising that algorithm in Rust.
+
+
 <!--- advent_readme_stars table --->
 ## 2024 Results
 
