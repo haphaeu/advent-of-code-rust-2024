@@ -23,6 +23,7 @@ algorithm to Rust, and *when I find the time*, optimising that algorithm in Rust
 | [Day 7](https://adventofcode.com/2024/day/7) | ⭐ | ⭐ |
 | [Day 8](https://adventofcode.com/2024/day/8) | ⭐ | ⭐ |
 | [Day 9](https://adventofcode.com/2024/day/9) | ⭐ | ⭐ |
+| [Day 10](https://adventofcode.com/2024/day/10) | ⭐ | ⭐ |
 <!--- advent_readme_stars table --->
 
 <!--- benchmarking table --->
