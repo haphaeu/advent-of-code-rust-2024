@@ -39,12 +39,12 @@ algorithm to Rust, and *when I find the time*, optimising that algorithm in Rust
 | [Day 5](./src/bin/05.rs) | `879.3µs` | `38.4ms` |
 | [Day 6](./src/bin/06.rs) | `389.6µs` | `942.3ms` |
 | [Day 7](./src/bin/07.rs) | `47.9ms` | `2.5s` |
-| [Day 8](./src/bin/08.rs) | `-` | `-` |
+| [Day 8](./src/bin/08.rs) | `70.4µs` | `159.7µs` |
 | [Day 9](./src/bin/09.rs) | `-` | `-` |
 | [Day 10](./src/bin/10.rs) | `547.0µs` | `432.9µs` |
 | [Day 11](./src/bin/11.rs) | `272.0ns` | `259.0ns` |
 
-**Total: 3538.78ms**
+**Total: 3539.01ms**
 <!--- benchmarking table --->
 
 ---
