@@ -19,12 +19,16 @@ fn calc_antinodes(
     size: isize,
 ) -> HashSet<(usize, usize)> {
     let mut antinodes = HashSet::<(usize, usize)>::new();
-    for c in coords.iter().combinations(2) {
-        // TODO: there has to be a batter way to do this
-        let (v1, v2) = (c[0], c[1]);
-        let (i1, j1) = (v1.0 as isize, v1.1 as isize);
-        let (i2, j2) = (v2.0 as isize, v2.1 as isize);
-
+    // Tuple combinations thanks to alice:
+    // https://users.rust-lang.org/t/how-to-pattern-match-a-combination/122386
+    for ((i1, j1), (i2, j2)) in
+        coords
+            .iter()
+            .tuple_combinations()
+            .map(|((i1, j1), (i2, j2))| {
+                ((*i1 as isize, *j1 as isize), (*i2 as isize, *j2 as isize))
+            })
+    {
         let (di, dj) = (i2 - i1, j2 - j1);
         let (an1i, an1j, an2i, an2j) = (i1 - di, j1 - dj, i2 + di, j2 + dj);
         if 0 <= an1i && an1i < size && 0 <= an1j && an1j < size {
