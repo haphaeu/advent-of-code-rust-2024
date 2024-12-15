@@ -1,3 +1,6 @@
+![example workflow](https://github.com/haphaeu/advent-of-code-rust-2024/actions/workflows/ci.yml/badge.svg)
+![example workflow](https://github.com/haphaeu/advent-of-code-rust-2024/actions/workflows/readme-stars.yml/badge.svg)
+
 <img src="./.assets/christmas_ferris.png" width="164">
 
 # 🎄 Advent of Code {2024}
